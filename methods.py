@@ -17,17 +17,23 @@ def enforce_gender_rule(sheet):
 
 
 def enter_data(sheet):
-    print("Enter data for each field. Press Enter without typing anything to skip.")
-    
+    #print("Enter data for each field. Press Enter without typing anything to skip.")
+    cont="y"
     # Prompt user for each field
-    Gender=input("Enter Gender: ").strip().capitalize()
-    word = input("Enter Word: ").strip().capitalize()
-    english_meaning = input("Enter English Meaning: ").strip().capitalize()
-    part_of_speech = input("Enter Part of Speech: ").strip().capitalize()
-    other_comments = input("Enter Other Comments: ").strip().capitalize()
+    while True:
+        Gender=input("Enter Gender: ").strip().capitalize()
+        word = input("Enter Word: ").strip().capitalize()
+        english_meaning = input("Enter English Meaning: ").strip().capitalize()
+        part_of_speech = input("Enter Part of Speech: ").strip().capitalize()
+        other_comments = input("Enter Other Comments: ").strip().capitalize()
+        
+        cont=input("do u want to continue entering? y / n").strip().lower()
+        if cont !="y":
+            break
 
-    sheet.append_row([Gender, word, english_meaning, part_of_speech, other_comments])
-
+        sheet.append_row([Gender, word, english_meaning, part_of_speech, other_comments])
+        
+        
     
 #when i was noting down the words i didnt really care about the Case Sensitivity of Nouns and others,
 #so this function will run every once when the api connection is established to check and change from the last updated row
