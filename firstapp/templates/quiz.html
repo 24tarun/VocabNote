@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Take a Quiz</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="num_questions">Number of Questions:</label>
+        <input type="number" id="num_questions" name="num_questions">
+        <button type="submit">Start Quiz</button>
+    </form>
+</body>
+</html>
