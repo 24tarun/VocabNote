@@ -5,7 +5,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 # Path to your credentials JSON file
-CREDS_FILE = r'D:\coding\credentials\vocabnote-425819-9e3b675a3e5a'
+CREDS_FILE = r'D:\\coding\\credentials\\vocabnote-425819-9e3b675a3e5a.json'
 
 # Define the scope
 SCOPE = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
