@@ -44,13 +44,13 @@ def enter_data_view(request):
     
     return render(request, 'enter_data.html', {'form': form})
 
-def quiz_view(request):
-    if request.method == 'POST':
-        num_questions = int(request.POST.get('num_questions', 0))
-        data = get_sheet().get_all_records()
-        quiz(data, num_questions)
-        return redirect('success')
-    return render(request, 'quiz.html')
+# def quiz_view(request):
+#     if request.method == 'POST':
+#         num_questions = int(request.POST.get('num_questions', 0))
+#         data = get_sheet().get_all_records()
+#         quiz(data, num_questions)
+#         return redirect('success')
+#     return render(request, 'quiz.html')
 
 def success_view(request):
     return HttpResponse("Operation was successful!")
