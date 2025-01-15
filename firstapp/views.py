@@ -6,7 +6,8 @@ from google.oauth2.service_account import Credentials
 from django import forms
 
 # Path to your credentials JSON file
-CREDS_FILE =  r"D:\coding\credentials\vocabnotecreds.json"
+
+CREDS_FILE =  r"C:\Users\tarun\OneDrive\Coding\credentials\vocabnotecreds.json"
 
 # Define the scope
 SCOPE = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
