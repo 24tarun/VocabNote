@@ -1,16 +1,19 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-#from .utils import enter_data, quiz
+from .utils import quiz
 import gspread
 from google.oauth2.service_account import Credentials
 from django import forms
 
 # Path to your credentials JSON file
-
 CREDS_FILE =  r"C:\Users\tarun\OneDrive\Coding\credentials\vocabnotecreds.json"
 
 # Define the scope
 SCOPE = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+
+def options_view(request):
+    return render(request, 'options.html')
+
 
 def get_sheet():
     creds = Credentials.from_service_account_file(CREDS_FILE, scopes=SCOPE)
@@ -45,13 +48,13 @@ def enter_data_view(request):
     
     return render(request, 'enter_data.html', {'form': form})
 
-# def quiz_view(request):
-#     if request.method == 'POST':
-#         num_questions = int(request.POST.get('num_questions', 0))
-#         data = get_sheet().get_all_records()
-#         quiz(data, num_questions)
-#         return redirect('success')
-#     return render(request, 'quiz.html')
+def quiz_view(request):
+    if request.method == 'POST':
+        num_questions = int(request.POST.get('num_questions', 0))
+        data = get_sheet().get_all_records()
+        quiz(data, num_questions)
+        return redirect('success')
+    return render(request, 'quiz.html')
 
 def success_view(request):
     return HttpResponse("Operation was successful!")
